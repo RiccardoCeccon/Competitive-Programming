@@ -1,3 +1,8 @@
+// https://practice.geeksforgeeks.org/problems/trapping-rain-water/0
+
+/*
+This algorithm solves the Trapping Rain Water Problem.
+*/
 
 #include <iostream>
 #include <string>
