@@ -4,22 +4,18 @@
 using namespace std;
 
 int main() {
-    int T, n, sol=0, a;
+    int T, n, sol=0, a, m=-100*1000;
     cin >> T;
-    vector<int> A;
     for (int i=0; i<T; i++) {
         cin >> n;
-        A.reserve(n);
         for (int j=0; j<n; j++) {
             cin >> a;
-            A.push_back(a);
-        }
-        for (int j=0; j<n; j++) {
-            sol+=A[j];
+            sol+=a;
+            if(sol>m){m=sol;}
             if(sol<0){sol=0;}
         }
-        cout<< sol << endl;
-        A.clear();
+        cout<< m << endl;
         sol=0;
+        m=-100*1000;
     }
 }
