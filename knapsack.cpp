@@ -24,5 +24,5 @@ int main() {
             else A[i][j]= A[i-1][j];
         }
     }
-    cout << A[S+1][n+1];
+    cout << A[S][n];
 }
