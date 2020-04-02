@@ -10,5 +10,5 @@ int main() {
         s += b-prev;
         prev = b;
     }
-    cout >> s >> endl;
+    cout << s << endl;
 }
