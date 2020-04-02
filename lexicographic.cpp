@@ -2,11 +2,11 @@
 using namespace std;
 
 int main() {
-    string s, sol;
+    string s, sol="";
     cin >> s;
     int n;
     n = s.length();
-    char x, max;
+    char x, max='0';
     for(int i = n-1; i>=0; i--){
         x = s[i];
         if (x>= max){
@@ -14,6 +14,6 @@ int main() {
             sol+= x;
         }
     }
-    for (int i = 0; i<n/2; i++) swap(sol[i], sol[n-i-1]); 
+    reverse(sol.begin(),sol.end());
     cout << sol << endl;
 }
