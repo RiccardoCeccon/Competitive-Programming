@@ -1,6 +1,4 @@
-#include <iostream>
-#include <string>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -16,17 +14,17 @@ int main() {
         for (int j=0; j<n; j++) cin >> S[j];
         for (int j=0; j<n; j++) {
             cin >> a;
-            F.push_back(make_pair(k,i))
+            F.push_back(make_pair(a,j));
         }
         sort (F.begin(),F.end());
         fin=0;
         for (int j=0; j<n; j++) {
-            if (S[ind[j]]>=fin) {cout>> ind[j]+1>> " ";
-            fin=F[ind[j]];
-            }
+            if (S[F[j].second]>=fin) {cout<< F[j].second+1 << " ";
+                fin=F[j].first;
+                }
+        }
         S.clear();
         F.clear();
-        ind.clear();
-        cout>> endl;
+        cout << endl;
     }
 }
