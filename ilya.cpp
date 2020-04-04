@@ -4,23 +4,20 @@ using namespace std;
 int main() {
     string s;
     cin >> s;
-    int n;
+    int n, len=s.length();
     cin >> n;
-    int l[n], r[n], b[n];
-    for (int i=0; i<n; i++) {
-        cin >> l[i] >> r[i];
-    }
+    int l, r, b[n];
     
-    if (s[0]==s[1]) b[0]=1;
-    else b[0]=0;
+    b[0]=0;
     
-    for (int i=1; i<n-1; i++) {
-        if (s[i]==s[i+1]) b[i]=b[i-1]+1;
+    for (int i=1; i<len; i++) {
+        if (s[i-1]==s[i]) b[i]=b[i-1]+1;
         else b[i]=b[i-1];
     }
     
     for (int i=0; i<n; i++) {
-        int s=b[r[i]-2]-b[l[i]-2];
+        cin << l << r;
+        int s=b[r-1]-b[l-1];
         cout << s << " ";
     }
 }
