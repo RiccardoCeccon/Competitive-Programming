@@ -100,7 +100,7 @@ int BestSum(Node *root, int &m){
     if (root==NULL) return 0;
     int l=BestSum(root->left, m);
     int r=BestSum(root->right, m);
-    if(l+r+root->data>m) m=l+r+root->data;
+    if(l+r+root->data>m && root->left!=NULL && root->right!=NULL) m=l+r+root->data;
     return max(l,r)+root->data;
 }
 
