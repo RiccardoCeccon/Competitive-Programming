@@ -19,3 +19,4 @@ int main() {
         cout << A[0] << endl;
     }
 }
+ 
