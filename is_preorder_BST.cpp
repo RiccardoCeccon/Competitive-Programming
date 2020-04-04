@@ -8,19 +8,19 @@ int main() {
        cin >> n;
        int a[n];
        for(int i=0; i<n; i++){
-           cin << a[i];
+           cin >> a[i];
        }
        stack<int> s;
-       root=numeric_limits<int>::min(); 
+       int root=-1001; 
        for(int i=0; i<n; i++){
            if (a[i]<root) sol=0;
            while (!s.empty() && s.top()<a[i]){
-            root=s.pop();
+            root=s.top();
            s.pop();
            }
-           s.push_back(a[i]);
+           s.push(a[i]);
        }
-       cout << sol;
+       cout << sol << endl;
        sol=1;
     }
 }
