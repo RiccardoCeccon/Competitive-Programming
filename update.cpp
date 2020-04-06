@@ -1,3 +1,7 @@
+// https://www.spoj.com/problems/UPDATEIT/
+/* anche qua mi da risposta sbagliata ma i test funzionano.
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
