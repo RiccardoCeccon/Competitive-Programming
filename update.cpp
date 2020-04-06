@@ -29,8 +29,8 @@ int main() {
         int l, r , val;
         for (int i=0; i<u; i++) {
             cin >> l >> r >> val;
-            BITadd(BIT, n, r, val);
-            BITadd(BIT, n, l-1, -val);
+            BITadd(BIT, n, r+1, -val);
+            BITadd(BIT, n, l, val);
         }
         cin >> q;
         for (int i=0; i<q; i++) {
