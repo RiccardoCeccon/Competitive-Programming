@@ -12,7 +12,7 @@ int main()
         for (int i=0; i<=l1; i++){
             for (int j=0; j<=l2; j++){
                 if (i==0 || j==0) a[i][j]=0;
-                else if (s1[i]==s2[j]) a[i][j]=a[i-1][j-1]+1;
+                else if (s1[i-1]==s2[j-1]) a[i][j]=a[i-1][j-1]+1;
                 else a[i][j]=max(a[i-1][j], a[i][j-1]);
             }
         }
