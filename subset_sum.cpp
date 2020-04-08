@@ -12,7 +12,7 @@ int main (){
         int s=accumulate (a, a+n, 0);
         if(s%2==1) {
             cout << "NO" << endl;
-            break;
+            continue;
         }
         s/=2;
         int sol[n+1][s+1];
@@ -22,9 +22,7 @@ int main (){
                 else if (i==0) sol[i][j]=0;
                 else if(sol[i-1][j]==1 || sol[i-1][j-a[i-1]]==1) sol[i][j]=1;
                 else sol[i][j]=0;
-                cout << sol[i][j] << " ";
             }
-            cout << endl;
         }
         if(sol[n][s]==1) cout << "YES" << endl;
         else cout << "NO" << endl;
