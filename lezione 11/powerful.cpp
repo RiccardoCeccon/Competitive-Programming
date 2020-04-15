@@ -19,13 +19,13 @@ int main()
     double s=sqrt(n);
     sn=ceil(s);
     int a[n]={};
-    vector<pair<int, int>> buck[sn];
+    vector<tuple<int, int, int>> buck[sn];
     for (int i=0; i<n; i++) cin >> a[i+1];
     for (int i=0; i<t; i++) {
         cin >> l >> r;
         l--;
         b = floor(l/s);
-        buck[b].push_back(make_pair(r, l));
+        buck[b].push_back(make_tuple(r, l, i));
     }
     
     for(int i=0; i<sn; i++){
@@ -36,12 +36,13 @@ int main()
     int count[m+1]={};
     int cur_l=0, cur_r=0;
     int sol=0;
+    int ans[n];
     
     
     for (int i=0; i<sn; i++) {
         for(auto b:buck[i]){ 
-            r=b.first;
-            l=b.second;
+            r=get<0>(b);
+            l=get<1>(b);
             
             while (cur_l < l){
                 cur_l++;
@@ -60,8 +61,8 @@ int main()
                 cur_r--;
             }
             
-            cout << sol << endl;
+            ans[get<2>(b)]=sol;
         }
     }
-    
+    for (int i=0; i<t; i++){cout << ans[i] << endl;}
 }
