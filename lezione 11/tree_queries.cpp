@@ -11,15 +11,6 @@ void DFS(vector<int> adj[], int root, int b[], int f[], int l[], int& t) {
     f[root] = t-1;
 }
 
-void add(int a[], int count[], int ind, int& sol){
-    count[a[ind]]++;
-}
-
-void rem(int a[], int count[], int ind, int& sol){
-    sol-=a[ind]*(2*count[a[ind]]-1);
-    count[a[ind]]--;
-}
-
 
 int main()
 {
