@@ -1,3 +1,4 @@
+  
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -39,6 +40,10 @@ int main()
         r=f[v-1];
         x=floor(l/s);
         buck[x].push_back(make_tuple(r, l, k, i));
+    }
+    
+    for (int i=0; i<=sn; i++) {
+        sort(buck[i].begin(),buck[i].end());
     }
     
     int maxc=*max_element(c,c+n);
