@@ -29,32 +29,32 @@ int main()
     for (int i=0; i<n; i++) cin >> c[i];
     
     vector<int> adj[n];
-    for (int i=0; i<n; i++) {
+    for (int i=0; i<n-1; i++) {
         cin >> x >> y;
         x--; y--;
         adj[x].push_back(y);
     }
-    int b[n], f[n], l[n];
+    int b[n], f[n], list[n];
     int t=0;
-    DFS(adj, 0, b, f, l, t); 
-    
-    
+    DFS(adj, 0, b, f, list, t); 
+
     double s=sqrt(n);
-    sn=ceil(s);
+    int sn=ceil(s);
     vector<tuple<int, int, int, int>> buck[sn+1];
     int v, k, l, r;
     for(int i=0; i<m; i++){
         cin >> v >> k;
-        l=b[v]-1;
-        r=f[v]-1;
+        l=b[v-1];
+        r=f[v-1];
         x=floor(l/s);
         buck[x].push_back(make_tuple(r, l, k, i));
     }
     
     int maxc=*max_element(c,c+n);
-    int count[maxc+1];
+    int count[maxc+1]={};
+    int sumcount[n+1]={};
     int ans[m];
-    int sol=0;
+    int cur_l=0; int cur_r=-1, cur_col;
     for (int i=0; i<=sn; i++) {
         for(auto b:buck[i]){ 
             r=get<0>(b);
@@ -62,23 +62,30 @@ int main()
             k=get<2>(b);
             
             while (cur_l < l){
+                cur_col=c[list[cur_l]];
+                sumcount[count[cur_col]]--;
+                count[cur_col]--;
                 cur_l++;
-                rem(a, count, cur_l, sol);
             }
             while (cur_l > l){
-                add(a, count, cur_l, sol);
                 cur_l--;
+                cur_col=c[list[cur_r]];
+                count[cur_col]++;
+                sumcount[count[cur_col]]++;
             }
             while (cur_r < r){
                 cur_r++;
-                add(a, count, cur_r, sol);
+                cur_col=c[list[cur_r]];
+                count[cur_col]++;
+                sumcount[count[cur_col]]++;
             }
             while (cur_r > r){
-                rem(a, count, cur_l, sol);
+                cur_col=c[list[cur_r]];
+                sumcount[count[cur_col]]--;
+                count[cur_col]--;
                 cur_r--;
             }
-            
-            ans[get<3>(b)]=sol;
+            ans[get<3>(b)]=sumcount[k];
         }
     }
     
