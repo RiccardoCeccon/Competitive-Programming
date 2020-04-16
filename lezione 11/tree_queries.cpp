@@ -1,4 +1,4 @@
-  
+   
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -45,21 +45,19 @@ int main()
 
     double s=sqrt(n);
     int sn=ceil(s);
-    vector<tuple<int, int, int, int>> buck;
+    vector<tuple<int, int, int, int>> buck[sn+1];
     int v, k, l, r;
     for(int i=0; i<m; i++){
         cin >> v >> k;
         l=b[v-1];
         r=f[v-1];
-        buck.push_back(make_tuple(l, r, k, i));
+        x=floor(l/s);
+        buck[x].push_back(make_tuple(r, l, k, i));
     }
     
-    sort(buck.begin(), buck.end(),
-    [&s](const tuple<int, int, int, int> &x, const tuple<int, int, int, int> &y) {
-        if (get<0>(x) / s == get<0>(y) / s)
-            return (get<1>(x) < get<1>(y));
-        return get<0>(x)<get<0>(y);
-    });
+    for (int i=0; i<=sn; i++){
+        sort(buck[i].begin(), buck[i].end());
+    }
     
     int maxc=*max_element(c,c+n);
     int count[maxc+1]={};
@@ -67,25 +65,26 @@ int main()
     int ans[m];
     int cur_l=0; int cur_r=-1, cur_col;
     
-    
-    for(auto b:buck){ 
-        r=get<1>(b);
-        l=get<0>(b);
-        k=min(get<2>(b),n);
-        
-        while (cur_l < l){
-            rem(cur_l++, count, sumcount, c, list);
+    for(int i=0; i<=sn; i++){
+        for(auto b:buck[i]){ 
+            r=get<0>(b);
+            l=get<1>(b);
+            k=min(get<2>(b),n);
+            
+            while (cur_l < l){
+                rem(cur_l++, count, sumcount, c, list);
+            }
+            while (cur_l > l){
+                add(--cur_l, count, sumcount, c, list);
+            }
+            while (cur_r < r){
+                add(++cur_r, count, sumcount, c, list);
+            }
+            while (cur_r > r){
+                rem(cur_r--, count, sumcount, c, list);
+            }
+            ans[get<3>(b)]=sumcount[k];
         }
-        while (cur_l > l){
-            add(--cur_l, count, sumcount, c, list);
-        }
-        while (cur_r < r){
-            add(++cur_r, count, sumcount, c, list);
-        }
-        while (cur_r > r){
-            rem(cur_r--, count, sumcount, c, list);
-        }
-        ans[get<3>(b)]=sumcount[k];
     }
     
     for (int i=0; i<m; i++){cout << ans[i] << endl;}
