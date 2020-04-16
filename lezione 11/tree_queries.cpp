@@ -2,16 +2,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void DFS(vector<int> adj[], int root, int b[], int f[], int l[], int& t) {
+void DFS(vector<int> adj[], int root, int par, int b[], int f[], int l[], int& t) {
     b[root] = t;
     l[t]=root;
     t++;
     for (int x: adj[root]) {
-        DFS(adj, x, b, f, l, t);
+        if (x==par) continue;
+        DFS(adj, x, root, b, f, l, t);
     }
     f[root] = t-1;
 }
 
+void add(int ind, int count[], int sumcount[], int c[], int list[]){
+    int cur_col=c[list[ind]];
+    count[cur_col]++;
+    sumcount[count[cur_col]]++;
+}
+
+void rem(int ind, int count[], int sumcount[], int c[], int list[]){
+    int cur_col=c[list[ind]];
+    sumcount[count[cur_col]]--;
+    count[cur_col]--;
+}
 
 int main()
 {
@@ -25,64 +37,55 @@ int main()
         cin >> x >> y;
         x--; y--;
         adj[x].push_back(y);
+        adj[y].push_back(x);
     }
     int b[n], f[n], list[n];
     int t=0;
-    DFS(adj, 0, b, f, list, t); 
+    DFS(adj, 0, -2, b, f, list, t); 
 
     double s=sqrt(n);
     int sn=ceil(s);
-    vector<tuple<int, int, int, int>> buck[sn+1];
+    vector<tuple<int, int, int, int>> buck;
     int v, k, l, r;
     for(int i=0; i<m; i++){
         cin >> v >> k;
         l=b[v-1];
         r=f[v-1];
-        x=floor(l/s);
-        buck[x].push_back(make_tuple(r, l, k, i));
+        buck.push_back(make_tuple(l, r, k, i));
     }
     
-    for (int i=0; i<=sn; i++) {
-        sort(buck[i].begin(),buck[i].end());
-    }
+    sort(buck.begin(), buck.end(),
+    [&s](const tuple<int, int, int, int> &x, const tuple<int, int, int, int> &y) {
+        if (get<0>(x) / s == get<0>(y) / s)
+            return (get<1>(x) < get<1>(y));
+        return get<0>(x)<get<0>(y);
+    });
     
     int maxc=*max_element(c,c+n);
     int count[maxc+1]={};
     int sumcount[n+1]={};
     int ans[m];
     int cur_l=0; int cur_r=-1, cur_col;
-    for (int i=0; i<=sn; i++) {
-        for(auto b:buck[i]){ 
-            r=get<0>(b);
-            l=get<1>(b);
-            k=get<2>(b);
-            
-            while (cur_l < l){
-                cur_col=c[list[cur_l]];
-                sumcount[count[cur_col]]--;
-                count[cur_col]--;
-                cur_l++;
-            }
-            while (cur_l > l){
-                cur_l--;
-                cur_col=c[list[cur_r]];
-                count[cur_col]++;
-                sumcount[count[cur_col]]++;
-            }
-            while (cur_r < r){
-                cur_r++;
-                cur_col=c[list[cur_r]];
-                count[cur_col]++;
-                sumcount[count[cur_col]]++;
-            }
-            while (cur_r > r){
-                cur_col=c[list[cur_r]];
-                sumcount[count[cur_col]]--;
-                count[cur_col]--;
-                cur_r--;
-            }
-            ans[get<3>(b)]=sumcount[k];
+    
+    
+    for(auto b:buck){ 
+        r=get<1>(b);
+        l=get<0>(b);
+        k=min(get<2>(b),n);
+        
+        while (cur_l < l){
+            rem(cur_l++, count, sumcount, c, list);
         }
+        while (cur_l > l){
+            add(--cur_l, count, sumcount, c, list);
+        }
+        while (cur_r < r){
+            add(++cur_r, count, sumcount, c, list);
+        }
+        while (cur_r > r){
+            rem(cur_r--, count, sumcount, c, list);
+        }
+        ans[get<3>(b)]=sumcount[k];
     }
     
     for (int i=0; i<m; i++){cout << ans[i] << endl;}
