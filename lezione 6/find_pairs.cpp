@@ -1,3 +1,10 @@
+/* https://codeforces.com/problemset/problem/160/C?locale=en
+
+All we have to do is compute the right integer as the "remainder" (in a generalized sense) of the division between k and n, 
+and then output the array at those indices.
+Time and space complexity is O(n).
+*/
+
 #include<bits/stdc++.h>
 using namespace std;
 
