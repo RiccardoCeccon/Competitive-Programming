@@ -1,11 +1,12 @@
-// http://codeforces.com/problemset/problem/353/B?locale=en
+/* http://codeforces.com/problemset/problem/353/B?locale=en
 
-/* This algorithm solves the Two Heaps problem. 
+This algorithm solves the Two Heaps problem. 
 If a number appers only once in the array, we give it to the smallest heap.
 If a number appears twice or more we give it to both heaps (it doesn't matter how it is distributed because once the heap has 
 the number, the result doesn't change depending on how many times one number appears in the heap).
 n1 and n2 represent the number of DISTINCT numbers in the first and the second heap. 
-Test number 6 is wrong because it wants the two heaps to have the same number of elements, but what matter is the number of distinct elements in the heaps, which is actually the same.
+Test number 6 is wrong because it wants the two heaps to have the same number of elements, but what matter is the number of 
+distinct elements in the heaps, which is actually the same.
 Indeed, the number of distinct pairs is correct.
 It runs in O(n) time because we have to read the array only once and then we work with the array count which has constant size=90.
 */
