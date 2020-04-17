@@ -1,3 +1,13 @@
+/* https://practice.geeksforgeeks.org/problems/maximum-path-sum/1
+
+As with isBST, the code written by me is only the last part: the maxPathSum function and the recursive function BestSum.
+The latter one gives the best path of a subtree and the best sum between two leaves. For every node, we glue together the two best 
+paths and if it is better than the previous best ones, we update the best. Some if() statements ensure that no path between one leaf
+and itself is gonna be considered.
+Running time is O(n), since we scan every node once with the recursive function.
+*/
+
+
 // { Driver Code Starts
 
 #include <bits/stdc++.h>
