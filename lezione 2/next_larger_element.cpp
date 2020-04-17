@@ -1,6 +1,5 @@
-// https://practice.geeksforgeeks.org/problems/next-larger-element/0
+/* https://practice.geeksforgeeks.org/problems/next-larger-element/0
 
-/*
 This algorithm solves the Next Larger Element problem. With a similar approach to Sliding Window, we create a stack where 
 at every step we pop elements until a larger one is found.
 Time and space complexity are O(n) because we scan the array only once, and every element of the stack is eliminated at most once.
