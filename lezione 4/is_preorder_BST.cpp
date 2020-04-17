@@ -3,7 +3,7 @@
 To check whether a sequence is the pre-order traversal of some BST, the algorith has the same idea of the Next Larger Element problem:
 at every iteration of the loop we quit the smaller element in the stack, calling "root" the last one. 
 The "root" element is the root of the subtree whose right branch the element of the array belongs to.
-As whith NLE problem, running time and space complexity are O(n).
+As whith Next Larger Element problem, running time and space complexity are O(n).
 */
 
 #include <bits/stdc++.h>
