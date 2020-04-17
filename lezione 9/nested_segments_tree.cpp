@@ -25,7 +25,6 @@ void updateValueUtil(int *st, int ss, int se, int i, int diff, int si)  {
 
 void updateValue(int arr[], int *st, int n, int i, int diff)  {   
     if (i < 0 || i > n-1)  {  
-        //cout<<"Invalid Input";  
         return;  
     }  
     arr[i] += diff;  
@@ -34,8 +33,7 @@ void updateValue(int arr[], int *st, int n, int i, int diff)  {
   
 
 int getSum(int *st, int n, int qs, int qe)  {
-    if (qs < 0 || qe > n-1 || qs > qe)  {  
-        //cout<<"Invalid Input";  
+    if (qs < 0 || qe > n-1 || qs > qe)  {
         return -1;  
     }  
     return getSumUtil(st, 0, n-1, qs, qe, 0);  
