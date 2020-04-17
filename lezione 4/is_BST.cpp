@@ -1,6 +1,5 @@
-// https://practice.geeksforgeeks.org/problems/check-for-bst/1
+/* https://practice.geeksforgeeks.org/problems/check-for-bst/1
 
-/*
 The only part written by me was the isBST function, the rest was given by the exercise. 
 The function stores the values of the nodes in O(n) time through the inorder function and then it checks that the sequence is monotonic.
 */
