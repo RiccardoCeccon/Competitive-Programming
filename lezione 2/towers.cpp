@@ -10,13 +10,12 @@ using namespace std;
 int main() {
     int n, a, c=0, m=0;
     cin >> n;
-    vector<int> num;
-    num.reserve(1000);
-    for (int i=0; i<n; i++) {
+    int num[1001]={};
+    while(n--) {
         cin >> a;
-        if(num[a-1]==0){c++;}
-        num[a-1]++;
-        if(num[a-1]>m){m++;}
+        if(num[a]==0) c++;
+        num[a]++;
+        if(num[a]>m) m++;
     }
     cout << m << " " << c << endl;
 }
