@@ -1,3 +1,11 @@
+/* https://codeforces.com/problemset/problem/579/B?locale=en
+
+This problem is solved greedily: we sort all the n^2 (to be precise, n(n-1)/2 ) couples by value, and we greedily form the couples
+following this order (if both of the elements are free).
+Time complexity is O(n^2*log(n^2))=O(n^2*log(n)) and space complexity is O(n^2).
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
