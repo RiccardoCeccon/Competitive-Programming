@@ -1,4 +1,5 @@
 /* https://practice.geeksforgeeks.org/problems/largest-even-number/0
+
 We want to put higher digits in higher position, with the exception that the last one should be even, if possible. We scan a counter
 so that first we pick an even digit and then all the other ones in ascending order.
 Running time and space complexity are both O(n).
@@ -18,7 +19,7 @@ int main(){
         l=str.length();
         int sol[l];
         for (int i=0; i<l; i++) {
-            r=N[i]-'0';
+            r=str[i]-'0';
             dig[r]++;
         }
         int count=0;
