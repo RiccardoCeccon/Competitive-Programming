@@ -1,4 +1,9 @@
+/* https://codeforces.com/problemset/problem/6/C?locale=en
 
+We perform static sums from the two ends of the array until we reach the half of the total sum. If they reach a central piece together
+the one who came first eats it (Alice if there's a draw).
+Running time is O(n), and so is space complexity.
+*/
 #include<bits/stdc++.h>
 using namespace std;
 
