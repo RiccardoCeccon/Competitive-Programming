@@ -1,39 +1,39 @@
-// https://practice.geeksforgeeks.org/problems/largest-even-number/0
+/* https://practice.geeksforgeeks.org/problems/largest-even-number/0
+We want to put higher digits in higher position, with the exception that the last one should be even, if possible. We scan a counter
+so that first we pick an even digit and then all the other ones in ascending order.
+Running time and space complexity are both O(n).
+*/
 
 #include <bits/stdc++.h>
 
 using namespace std;
 
 int main(){
-    int T, l, r;
-    string N;
-    cin >> T;
-    for (int i=0; i<T; i++){
-        int dig[10]={0};
-        cin >> N;
-        l=N.length();
+    int t, l, r;
+    string str;
+    cin >> t;
+    while(t--){
+        int dig[10]={};
+        cin >> str;
+        l=str.length();
         int sol[l];
-        for (int j=0; j<l; j++) {
-            r=N[j]-'0';
+        for (int i=0; i<l; i++) {
+            r=N[i]-'0';
             dig[r]++;
         }
         int count=0;
-        for (int j=0; j<10; j+=2){
-           if(dig[j]!=0) {
-               dig[j]--;
-               sol[0]=j;
+        for (int i=0; i<10; i+=2){
+           if(dig[i]!=0) {
+               dig[i]--;
+               sol[0]=i;
                count++;
                break;
            }
        }
-       for (int j=0; j<10; j++){
-           for (int k=0; k<dig[j]; k++){
-               sol[count++]=j;
-           }
+       for (int i=0; i<10; i++){
+           for (int k=0; k<dig[i]; k++) sol[count++]=i;
        }
-       for (int j=l-1; j>=0; j--){
-           cout << sol[j];
-       }
+       for (int i=l-1; i>=0; i--) cout << sol[i];
        cout << endl;
     }
 }
