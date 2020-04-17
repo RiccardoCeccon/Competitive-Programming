@@ -9,11 +9,11 @@ Running time is O(n*logn) due to the sorting procedure, space complexity is O(n)
 using namespace std;
 
 int main() {
-    int n, q;
+    int64_t n, q;
     cin >> n >> q;
-    int l, r, sol=0;
-    int a[n], p[n+1]={0};
-    long long int s[n];
+    int64_t l, r, sol=0;
+    int64_t a[n], p[n+1]={0};
+    int64_t s[n];
     for (int i=0; i<n; i++) cin >> a[i];
     for (int i=0; i<q; i++) {
     cin >> l >> r;
