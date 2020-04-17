@@ -1,4 +1,5 @@
-/*
+/*https://codeforces.com/problemset/problem/37/A?locale=en
+
 This algorithm solves the Towers Problem. For every natural number we count the number of blocks of that length.
 Every time a new number appears, we count it, and we also keep track of the maximum.
 Time complexity is O(n) because we perform only one loop, space complexity is O(1).
