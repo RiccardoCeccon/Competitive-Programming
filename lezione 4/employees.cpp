@@ -1,3 +1,10 @@
+/* https://practice.geeksforgeeks.org/problems/firing-employees/0
+
+We store in adjacency list the edges of the graph and through a DFS we compute the degree of every node.
+Then, as required, we compute the sum of the degree and of the rank of the node, checking wheter it is a prime number.
+Running time and space complexity are O(n) because the list of the edges has just n-1 elements and we scan the tree only once 
+per node to make the BFS.
+*/
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,11 +31,7 @@ int main(){
         for (int i=0; i<n; i++){
             cin >> a;
             if (a==0) Q.push(i); //boss
-            else{
-                a--;
-                subord[a].push_back(i);
-               
-            }
+            else subord[--a].push_back(i);
         }
         //BFS for degree
         int degree[n]={};
