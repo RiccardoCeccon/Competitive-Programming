@@ -1,4 +1,9 @@
+/* https://codeforces.com/problemset/problem/466/C?locale=en
 
+As descripted in lesson, we count in c[i] the number of suffixes from i to n such that the sum is the total sum divided by three.
+Every time a prefix has sum equal to the total sum divided by three, we sum up the suffixes c[i+2].
+Running time and space complexity are O(n).
+*/
 #include<bits/stdc++.h>
 using namespace std;
 
