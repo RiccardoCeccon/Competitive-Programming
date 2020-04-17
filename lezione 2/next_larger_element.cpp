@@ -1,41 +1,33 @@
 // https://practice.geeksforgeeks.org/problems/next-larger-element/0
 
 /*
-This algorithm solves the Next Larger Element problem.
+This algorithm solves the Next Larger Element problem. With a similar approach to Sliding Window, we create a stack where 
+at every step we pop elements until a larger one is found.
+Time and space complexity are O(n) because we scan the array only once, and every element of the stack is eliminated at most once.
 */
 
 #include <iostream>
-#include <string>
 #include <vector>
 #include <stack>
-#include <deque>
 using namespace std;
 
 int main() {
-    int T, n, a;
-    cin >> T;
-    vector<int> A, sol;
-    stack<int> s; 
-    for (int i=0; i<T; i++) {
+    int t, n;
+    cin >> t;
+    stack<int64_t> s; 
+    while(t--) {
         cin >> n;
-        A.reserve(n);
-        sol.reserve(n);
-        for (int j=0; j<n; j++) {
-            cin >> a;
-            A.push_back(a);
+        int64_t A[n];
+        int64_t sol[n];
+        for (int i=0; i<n; i++) cin >> A[i];
+        for (int i=n-1;i>=0;i--) {
+            while ( !s.empty() && A[i]>=s.top() ) s.pop();
+            if(s.empty()) sol[i]=-1;
+            else sol[i] = s.top();
+            s.push(A[i]);
         }
-        for (int j=n-1;j>=0;j--) {
-            while(!s.empty() && A[j]>=s.top()){s.pop();}
-            if(s.empty()){sol.push_back(-1);}
-            else{sol.push_back(s.top());}
-            s.push(A[j]);
-        }
-        for (int j=n-1;j>=0;j--) {
-            cout << sol[j] << " ";
-        }
+        for (int i=0; i<n; i++) cout << sol[i] << " ";
         cout << endl;
-        A.clear();
-        sol.clear();
-        while (!s.empty()){s.pop();}
+        while (!s.empty()) s.pop();
     }
 }
