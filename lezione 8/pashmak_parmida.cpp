@@ -1,3 +1,12 @@
+/* https://codeforces.com/problemset/problem/459/D?locale=en
+
+We substitute the elements of a with their position in the sorted array. We then calculate the quantities 
+l[i]=f(1,i,a[i]) and r[i]=f(i,n,a[i]) for every i.
+Thanks to a BIT we can count how many times l[i]>r[j] for i<j: we sum up to the index i (taking the complementary) and we add 1 to the BIT in the position l[i], for increasing i. 
+Running time is O(n*log(n)) and space complexity is O(n).
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
