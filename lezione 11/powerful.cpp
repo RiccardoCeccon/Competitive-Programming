@@ -2,7 +2,7 @@
 
 We use Mo's Algorithm to solve the problem. The significant part consists in the add and rem functions.
 We use a counter to keep track of all the Ks and we use the fact that Ks^2-(Ks-1)^2=2*Ks-1 to perform the add/rem procedure.
-Time complexity is O((n+m)*sqrt(n)+m*log(m)), space complexity is O(n+m).
+Time complexity is O((n+m)*sqrt(n)+m*log(m)), space complexity is O(n+m), where m is the max of the array elements.
 */
 
 
