@@ -2,7 +2,7 @@
 
 We perform Mo's algorithm applied to pre-order DFS read of the tree and translation of the input v into a pair of indices. 
 We then check if between these two indices there are numbers in quantity >=k.
-The add and rem functions consist just in an update of counters.
+The add and rem functions consist just in an update of counters. 
 Running time is O((n+m)*sqrt(n)+m*log(m)), space complexity is O(n+m).
 */
 
