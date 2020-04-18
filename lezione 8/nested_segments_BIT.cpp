@@ -1,4 +1,4 @@
-/* https://codeforces.com/problemset/problem/652/D?locale=en
+/* https://codeforces.com/problemset/problem/652/D?locale=en 
 
 We sort the vector of left ends and we convert the right ends with their position in the sorted array of right ends.
 We scan the l vector in decreasing order and we add 1 to the position r. We sum from 0 to r-1 to get the number of nested segments.
