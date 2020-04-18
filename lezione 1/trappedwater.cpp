@@ -1,39 +1,31 @@
-// https://practice.geeksforgeeks.org/problems/trapping-rain-water/0
+/* https://practice.geeksforgeeks.org/problems/trapping-rain-water/0
 
-/*
-This algorithm solves the Trapping Rain Water Problem.
+We xompute the prefix and suffix maximums, and at every index we sum to the solution the minimum between the max from the left 
+and the max from the right, and the value of the array in that position.
+Time and space complexity are O(n).
 */
 
 #include <iostream>
-#include <string>
-#include <vector>
 using namespace std;
 
 int main() {
-    int T, n, a, m=0, s=0;
-    cin >> T;
-    vector<int> A, maxr, maxl;
-    for (int i=0; i<T; i++) {
+    int t, n, m=0, s=0;
+    cin >> t;
+    while(t--) {
         cin >> n;
-        A.reserve(n);
-        maxr.reserve(n);
-        maxl.reserve(n);
-        for (int j=0; j<n; j++) {
-            cin >> a;
-            A.push_back(a);
-            if(a>m){m=a;}
-            maxl[j]=m;
+        int A[n], maxl[n];
+        for (int i=0; i<n; i++) {
+            cin >> A[i];
+            if(A[i]>m) m=A[i];
+            maxl[i]=m;
         }
         m=0;
-        for (int j=n-1;j>=0;j--) {
-            if(A[j]>m){m=A[j];}
-            s+=min(maxl[j],m)-A[j];
+        for (int i=n-1; i>=0; i--) {
+            if(A[i]>m){m=A[i];}
+            s+=min(maxl[i],m)-A[i];
         }
         cout << s << endl;
         m=0;
-        A.clear();
-        maxr.clear();
-        maxl.clear();
         s=0;
     }
 }
