@@ -1,7 +1,7 @@
 /* https://practice.geeksforgeeks.org/problems/kadanes-algorithm/0
 
 We run a prefix sum and we put it to zero every time it becomes negative. We keep track of the maximum of the prefix sum.
-Running time is O(n) and space complexity is O(1).
+Running time is O(n) and space complexity is O(1). 
 */
 
 #include <iostream>
