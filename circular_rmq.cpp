@@ -89,21 +89,38 @@ int main() {
     int l=0, r, v;
     for (int i=0; i<n; i++) cin >> a[i];
     constructST(a, n);
+    
     cin >> m;
     string input;
+    getline(cin, input);
     for (int i=0; i<m; i++){
-        cin >> l >> r >> v;
-        updateRange(n, l, r, v);
-    
-        cin >> l >> r;
-        if (r<l) {
-            v=min(getRMQ(n, 0, r), getRMQ(n, l, n-1));
-            cout << v << endl;
-        } else { 
-            v=getRMQ(n, l, r);
-            cout << v << endl;
+        getline(cin, input);
+        l = stoi(input.substr(0, input.find(' ')));
+        input.erase(0, input.find(' ') + 1);
+        
+        if (input.find(' ')==string::npos){
+            r = stoi(input.substr(0, input.find(' ')));
+            if (r<l) {
+                v=min(getRMQ(n, 0, r), getRMQ(n, l, n-1));
+                cout << v << endl;
+            } else { 
+                v=getRMQ(n, l, r);
+                cout << v << endl;
+            }
+        } else {
+            l = stoi(input.substr(0, input.find(' ')));
+            input.erase(0, input.find(' ') + 1);
+            v = stoi(input.substr(0, input.find(' ')));
+            
+            if (r<l) {
+                updateRange(n, 0, r, v);
+                updateRange(n, l, n-1, v);
+            } else { 
+                updateRange(n, l, r, v);
+            }
         }
     }
+    
     return 0; 
 } 
   
