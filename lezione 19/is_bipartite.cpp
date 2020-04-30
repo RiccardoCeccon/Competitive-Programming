@@ -5,7 +5,6 @@ If at some time two side assignments do not coincide, we return false.
 The running time is the same as BFS, i.e. O(E+V).
 */
 
-
 // { Driver Code Starts
 // C++ program to find out whether a given graph is Bipartite or not.
 // It works for disconnected graph also.
