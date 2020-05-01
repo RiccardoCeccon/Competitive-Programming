@@ -1,3 +1,11 @@
+/* http://codeforces.com/contest/545/problem/C?locale=en
+
+The first tree can always be cut. Then we scan from the left and greedily we cut the tree if there is enough space between it and 
+the previous one or between it and the following one; in the second case, we update the position of the tree with the position of its
+tip when cut.
+Running time and space complexity are O(n).
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
