@@ -1,5 +1,8 @@
-/*
-This algorithm solves the 0-1 knapsack problem.
+/* https://www.spoj.com/problems/KNAPSACK/
+
+We use dynamic programming to solve the 0-1 Knapsack problem. We define the matrix A where A[i][j] is the maximum value you can get with a capacity of j,
+using only the first i elements. 
+Running time is O(n*S), and also space complexity.
 */
 
 #include<bits/stdc++.h>
