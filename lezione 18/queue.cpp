@@ -2,7 +2,7 @@
 
 /* We sort the elements with respect to the number of higher people in front of them.
 If this number is higher than the position in the sorted vector p, there is no solution.
-Otherwise, we put every persone greedily in the p[i]-th position from above to compute its heigth.
+Otherwise, we put every person greedily in the p[i]-th position from above to compute its heigth.
 Running time is O(n*log(n)) due to the sorting of the input vector.
 */
 
