@@ -1,3 +1,10 @@
+/* http://codeforces.com/problemset/problem/320/A?locale=en
+
+We scan the digits from the right, and we greedily check if the suffix is 1,14, or 144. If so, we quit the suffix and continue with the scan,
+otherwise we stop.
+Running time is O(log(n)).
+/*
+
 #include <bits/stdc++.h>
 using namespace std;
 
