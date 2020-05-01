@@ -1,3 +1,11 @@
+/* https://practice.geeksforgeeks.org/problems/longest-common-subsequence/0
+
+We define the matrix a, where a[i][j] is the longest common subsequence u to the positions i and j. The recursion to get a[i][j]
+from the previous ones is: a[i][j]=a[i-1][j-1]+1, if s1[i]=s2[j] and else a[i][j]=max(a[i][j-1],a[i-1][j]).
+Running time and space complexity are O(l1*l2), where l1 and l2 are the lengths of the two strings.
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
