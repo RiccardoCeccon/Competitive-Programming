@@ -1,5 +1,11 @@
-/* I've decided to present the solution in O(n^2) time, and to use the O(nlog(n)) time one in the solution of the Bitonic Subsequence  
-problem, because it wasn't the one I had thought about.*/
+/* https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence/0
+
+I've decided to present the solution in O(n^2) time, and to use the O(nlog(n)) time one in the solution of the Bitonic Subsequence  
+problem, because it wasn't the one I had thought about. 
+It works like this: we scan the array and update the quantity l[i] (the LIS up to index i) through an inner loop: if a[i]>a[j] and
+l[j]+1>l[i], we add pur l[i] equal to l[j]+1.
+Running time is O(n^2), as said before, due to the double loop. Space complexity is O(n).
+*/
 
 #include <bits/stdc++.h>
 using namespace std;
