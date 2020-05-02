@@ -1,3 +1,10 @@
+/* https://practice.geeksforgeeks.org/problems/longest-bitonic-subsequence/0
+
+We use the O(log(n)*n) method for the LIS in order to get for every i the length of the LIS from the left and from the right. 
+Summing these two quantities minus one, we get the longest bitonic sequence that inverts in i. Taking the maximum over i we get the result.
+Running time is O(n*log(n)).
+*/
+
 #include <bits/stdc++.h> 
 using namespace std;
 
