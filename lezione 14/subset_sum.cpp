@@ -1,4 +1,10 @@
-/* highly inefficient*/
+/* https://practice.geeksforgeeks.org/problems/subset-sum-problem/0
+
+First we compute s, the half of the sum of all the entries of the vector. Then we use dynamic programming to see if with the elements 
+up to the i-th we can get the sum equal to j. the answer is a[i][s].
+Running time is O(n*s).
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
