@@ -1,3 +1,10 @@
+/* https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room/0
+
+We sort the meetings wrt to the finish time, in nondecreasing order. We scan greedily the sorted list and we select an event if 
+its beginning time is compatible with the finish time of the last one selected.
+Time complexity is O(n*log(n)) due to sorting.
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
