@@ -1,3 +1,12 @@
+/* https://practice.geeksforgeeks.org/problems/edit-distance/0
+
+We use dynamic programming to define the matrix a, where a[i][j] stands for the edit distance between the first word up to the i-th letter
+and the second word up to the j-th letter. the recursion is simple: if s1[i]=s2[j], then we don't have additional edits: a[i][j]=a[i-1][j-1],
+otherwise a[i][j]=max( a[i-1][j], a[i][j-1], a[i-1][j-1]).
+Running time and space complexity are O(l1*l2).
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
