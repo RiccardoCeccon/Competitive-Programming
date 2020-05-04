@@ -93,13 +93,13 @@ int main() {
     cin >> m;
     string input;
     getline(cin, input);
-    for (int i=0; i<m; i++){
+    while(m--){
         getline(cin, input);
         l = stoi(input.substr(0, input.find(' ')));
         input.erase(0, input.find(' ') + 1);
         
         if (input.find(' ')==string::npos){
-            r = stoi(input.substr(0, input.find(' ')));
+            r = stoi(input);
             if (r<l) {
                 v=min(getRMQ(n, 0, r), getRMQ(n, l, n-1));
                 cout << v << endl;
@@ -108,9 +108,9 @@ int main() {
                 cout << v << endl;
             }
         } else {
-            l = stoi(input.substr(0, input.find(' ')));
+            r = stoi(input.substr(0, input.find(' ')));
             input.erase(0, input.find(' ') + 1);
-            v = stoi(input.substr(0, input.find(' ')));
+            v = stoi(input);
             
             if (r<l) {
                 updateRange(n, 0, r, v);
@@ -123,4 +123,3 @@ int main() {
     
     return 0; 
 } 
-  
