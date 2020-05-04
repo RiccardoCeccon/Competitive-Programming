@@ -1,7 +1,7 @@
 /* https://codeforces.com/problemset/problem/424/B?locale=en
 
 We sort cities by distance and include them until we get the desired number of citizens.
-Running time is O(n*log(n)) due to sorting, and space complexity is O(n).
+Running time is O(n*log(n)) due to sorting, and space complexity is O(n). 
 */
 #include<bits/stdc++.h>
 using namespace std;
