@@ -1,6 +1,15 @@
+/* http://codeforces.com/problemset/problem/277/A?locale=en
+
+We create a bipartite graph between the employees and the languages. If no one knows any language we print n, otherwise we print
+the number of connected components of the graph minus one.
+Running time and space complexity are O(n+m).
+*/
+
+
+
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
 int main(){
     int n, m, l, k;
     cin >> n >> m;
