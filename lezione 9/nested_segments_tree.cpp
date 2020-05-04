@@ -3,7 +3,7 @@
 We perform the same algorithm as with the BIT, but we sum between indices and add values thanks to a segment tree.
 The codes for the segment tree are taken from the Geeks4Geeks tutorial.
 As before, we scan l in decreasing order, we add 1 to the position r and we sum from 0 to r-1.
-Running time is O(n*log(n)) and space complexity is O(n).
+Running time is O(n*log(n)) and space complexity is O(n). 
 */
 
 
