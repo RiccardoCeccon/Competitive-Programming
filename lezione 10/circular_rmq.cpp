@@ -1,20 +1,25 @@
+/* http://codeforces.com/problemset/problem/52/C
+
+We implement a segment tree with lazy propagation with minimum property (i.e. the parent is the minimum of the two children).
+Running time is O(m*log(n)).
+*/
+
+
 #include <bits/stdc++.h>
 using namespace std;
-#define MIN -100000;
-#define MAX 100000;
-
+#define MAX 2000000001;
   
-//const MAX_SIZE= 2*(int)pow(2,ceil(log2(200001)))+1;
-int tree[300000] = {};  
-int lazy[300000] = {};  
+//MAX_SIZE= 2*(int)pow(2,ceil(log2(200001)))+1;
+int64_t tree[600000] = {};  
+int64_t lazy[600000] = {};  
 
 
-void updateRangeUtil(int si, int ss, int se, int us, int ue, int diff) { 
+void updateRangeUtil(int si, int ss, int se, int us, int ue, int64_t diff) { 
     if (lazy[si] != 0) { 
         tree[si] += lazy[si]; 
         if (ss != se) { 
-            lazy[si*2 + 1]   += lazy[si]; 
-            lazy[si*2 + 2]   += lazy[si]; 
+            lazy[si*2 + 1] += lazy[si]; 
+            lazy[si*2 + 2] += lazy[si]; 
         } 
         lazy[si] = 0; 
     } 
@@ -22,8 +27,8 @@ void updateRangeUtil(int si, int ss, int se, int us, int ue, int diff) {
     if (ss>=us && se<=ue)  { 
         tree[si] += diff; 
         if (ss != se) { 
-            lazy[si*2 + 1]   += diff; 
-            lazy[si*2 + 2]   += diff; 
+            lazy[si*2 + 1] += diff; 
+            lazy[si*2 + 2] += diff; 
         } 
         return; 
     }  
@@ -34,14 +39,14 @@ void updateRangeUtil(int si, int ss, int se, int us, int ue, int diff) {
 } 
   
 
-void updateRange(int n, int us, int ue, int diff) 
+void updateRange(int n, int us, int ue, int64_t diff) 
 { 
    updateRangeUtil(0, 0, n-1, us, ue, diff); 
 } 
   
-int getRMQUtil(int ss, int se, int qs, int qe, int si) { 
+int64_t getRMQUtil(int ss, int se, int qs, int qe, int si) { 
     if (lazy[si] != 0) { 
-        tree[si] += (se-ss+1)*lazy[si]; 
+        tree[si] += lazy[si]; 
         if (ss != se) { 
             lazy[si*2+1] += lazy[si]; 
             lazy[si*2+2] += lazy[si]; 
@@ -55,7 +60,7 @@ int getRMQUtil(int ss, int se, int qs, int qe, int si) {
 }
 
 
-int getRMQ(int n, int qs, int qe) { 
+int64_t getRMQ(int n, int qs, int qe) { 
     if (qs < 0 || qe > n-1 || qs > qe) { 
         printf("Invalid Input"); 
         return MAX; 
@@ -63,7 +68,7 @@ int getRMQ(int n, int qs, int qe) {
     return getRMQUtil(0, n-1, qs, qe, 0); 
 } 
 
-void constructSTUtil(int arr[], int ss, int se, int si) { 
+void constructSTUtil(int64_t arr[], int ss, int se, int si) { 
     if (ss > se) return ; 
     if (ss == se) { 
         tree[si] = arr[ss]; 
@@ -76,7 +81,7 @@ void constructSTUtil(int arr[], int ss, int se, int si) {
 } 
   
 
-void constructST(int arr[], int n) { 
+void constructST(int64_t arr[], int n) { 
     constructSTUtil(arr, 0, n-1, 0); 
 } 
   
@@ -85,8 +90,9 @@ void constructST(int arr[], int n) {
 int main() { 
     int n, m;
     cin >> n;
-    int a[n];
-    int l=0, r, v;
+    int64_t a[n];
+    int l=0, r;
+    int64_t v;
     for (int i=0; i<n; i++) cin >> a[i];
     constructST(a, n);
     
@@ -123,3 +129,4 @@ int main() {
     
     return 0; 
 } 
+
