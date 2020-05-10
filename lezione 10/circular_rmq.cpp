@@ -1,4 +1,4 @@
-/* http://codeforces.com/problemset/problem/52/C
+/* http://codeforces.com/problemset/problem/52/C 
 
 We implement a segment tree with lazy propagation with minimum property (i.e. the parent is the minimum of the two children).
 Running time is O(m*log(n)).
